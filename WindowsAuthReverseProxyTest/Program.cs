@@ -32,6 +32,11 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapGet("/getUserName", (HttpContext httpContext) =>
+{
+    return httpContext?.User?.Identity?.Name ?? "No username!";
+});
+
 app.MapRazorPages();
 
 app.Run();
